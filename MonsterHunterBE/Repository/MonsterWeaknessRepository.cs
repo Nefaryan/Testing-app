@@ -12,7 +12,7 @@ namespace MonsterHunterBE.Repository
             this.Monstercontext = monstercontext;
         }
 
-        public MonsterWeakness newWeakness(MonsterWeakness weakness)
+        public MonsterWeakness NewWeakness(MonsterWeakness weakness)
         {
             weakness.Id = Guid.NewGuid();
             Monstercontext.MonsterWeaknesses.Add(weakness);
@@ -20,7 +20,7 @@ namespace MonsterHunterBE.Repository
             return weakness;
         }
 
-        public MonsterWeakness getById(Guid id)
+        public MonsterWeakness GetById(Guid id)
         {
             var weak = Monstercontext.MonsterWeaknesses.FirstOrDefault(w => w.Id == id);
             if (weak == null)
@@ -30,11 +30,11 @@ namespace MonsterHunterBE.Repository
             return weak;
         }
 
-        public List<MonsterWeakness> getAllWeakness()
+        public List<MonsterWeakness> GetAllWeakness()
         {
             return Monstercontext.MonsterWeaknesses.ToList();
         }
-        public MonsterWeakness updateWeak(Guid id, MonsterWeakness weakness)
+        public MonsterWeakness UpdateWeak(Guid id, MonsterWeakness weakness)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace MonsterHunterBE.Repository
             return weakness;
         }
 
-        public void delete(Guid id)
+        public void Delete(Guid id)
         {
             var weak = Monstercontext.MonsterWeaknesses.FirstOrDefault(w => w.Id == id);
             if (weak != null)

@@ -12,29 +12,29 @@ namespace MonsterHunterBE.Service
             _repository = repository;
         }
 
-        public List<MonsterWeakness> getAll()
+        public List<MonsterWeakness> GetAll()
         {
-            return _repository.getAllWeakness();
+            return _repository.GetAllWeakness();
         }
 
-        public MonsterWeakness getById(Guid id)
+        public MonsterWeakness GetById(Guid id)
         {
-            return _repository.getById(id);
+            return _repository.GetById(id);
         }
 
-        public MonsterWeakness addWeakness(MonsterWeakness monsterWeakness)
+        public MonsterWeakness AddWeakness(MonsterWeakness monsterWeakness)
         {
-            return _repository.newWeakness(monsterWeakness);
+            return _repository.NewWeakness(monsterWeakness);
         }
 
-        public MonsterWeakness updateWeakness(Guid id, MonsterWeakness monsterWeakness)
+        public MonsterWeakness UpdateWeakness(Guid id, MonsterWeakness monsterWeakness)
         {
-            return _repository.updateWeak(id, monsterWeakness);
+            return _repository.UpdateWeak(id, monsterWeakness);
         }
 
-        public void deleteWeakness(Guid id)
+        public void DeleteWeakness(Guid id)
         {
-            _repository.delete(id);
+            _repository.Delete(id);
         }
     }
 }

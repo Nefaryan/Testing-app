@@ -34,7 +34,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var drop = service.singleDrop(nome);
+                var drop = service.SingleDrop(nome);
                 if (drop == null)
                 {
                     return NotFound();
@@ -67,7 +67,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                service.updateDrop(nome, drop);
+                service.UpdateDrop(nome, drop);
                 return Ok();
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                service.deleteDrop(nome);
+                service.DeleteDrop(nome);
                 return NoContent();
             }
             catch (Exception ex)

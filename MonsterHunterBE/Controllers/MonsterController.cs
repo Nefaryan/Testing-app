@@ -144,7 +144,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet("/route/{id:Guid}")]
-        public IActionResult getFromRoute([FromRoute] Guid id)
+        public IActionResult GetFromRoute([FromRoute] Guid id)
         {
             try
             {

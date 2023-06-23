@@ -35,7 +35,7 @@ namespace MonsterHunterBE.Repository
             return context.MonsterDrops.ToList();
         }
 
-        public MonsterDrop updateDrop(string name, MonsterDrop monsterDrop)
+        public MonsterDrop UpdateDrop(string name, MonsterDrop monsterDrop)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace MonsterHunterBE.Repository
 
         }
 
-        public void deleteDrop(string name)
+        public void DeleteDrop(string name)
         {
             var drop = context.MonsterDrops.FirstOrDefault(d => d.Name == name);
             if (drop != null)

@@ -20,17 +20,17 @@ namespace MonsterHunterBE.Service
         {
             return _repository.GetDropList();
         }
-        public MonsterDrop singleDrop(string name)
+        public MonsterDrop SingleDrop(string name)
         {
             return _repository.GetDropByName(name);
         }
-        public MonsterDrop updateDrop(string nome, MonsterDrop monsterDrop)
+        public MonsterDrop UpdateDrop(string nome, MonsterDrop monsterDrop)
         {
-            return _repository.updateDrop(nome, monsterDrop);
+            return _repository.UpdateDrop(nome, monsterDrop);
         }
-        public void deleteDrop(string name)
+        public void DeleteDrop(string name)
         {
-            _repository.deleteDrop(name);
+            _repository.DeleteDrop(name);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var weak = weakness.getAll();
+                var weak = weakness.GetAll();
                 return Ok(weak);
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var weak = weakness.getById(id);
+                var weak = weakness.GetById(id);
                 if (weak == null)
                 {
                     return NotFound();
@@ -52,7 +52,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                weakness.addWeakness(weak);
+                weakness.AddWeakness(weak);
                 return CreatedAtAction(nameof(GetSingleWeak), new { id = weak.Id }, weak);
             }
             catch (Exception ex)
@@ -66,7 +66,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                weakness.updateWeakness(id, weak);
+                weakness.UpdateWeakness(id, weak);
                 return Ok();
             }
             catch (Exception ex)
@@ -77,11 +77,11 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult deleteWeakness(Guid id)
+        public IActionResult DeleteWeakness(Guid id)
         {
             try
             {
-                weakness.deleteWeakness(id);
+                weakness.DeleteWeakness(id);
                 return NoContent();
             }
             catch (Exception ex)
