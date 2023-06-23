@@ -96,7 +96,7 @@ namespace MonsterHunterBE.Repository
         public void AddWeaknessToMonster(Guid monsterId, Guid weaknessId)
         {
             var monster = GetMonsterById(monsterId);
-            var weakness = weaknessRepository.getById(weaknessId);
+            var weakness = weaknessRepository.GetById(weaknessId);
 
             if (monster != null && weakness != null)
             {

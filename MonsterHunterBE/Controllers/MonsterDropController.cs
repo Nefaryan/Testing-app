@@ -8,11 +8,11 @@ namespace MonsterHunterBE.Controllers
     [Route("api/[controller]")]
     public class MonsterDropController : Controller
     {
-        private readonly MonsterDropService service;
+        private readonly MonsterDropService dropService;
 
         public MonsterDropController(MonsterDropService service)
         {
-            this.service = service;
+            this.dropService = service;
         }
 
         [HttpGet]
@@ -20,7 +20,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var drop = service.GetMonsterDropList();
+                var drop = dropService.GetMonsterDropList();
                 return Ok(drop);
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var drop = service.SingleDrop(nome);
+                var drop = dropService.SingleDrop(nome);
                 if (drop == null)
                 {
                     return NotFound();
@@ -53,7 +53,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                service.AddMonsterDrop(drop);
+                dropService.AddMonsterDrop(drop);
                 return CreatedAtAction(nameof(GetSingle), new { nome = drop.Name }, drop);
             }
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                service.UpdateDrop(nome, drop);
+                dropService.UpdateDrop(nome, drop);
                 return Ok();
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                service.DeleteDrop(nome);
+                dropService.DeleteDrop(nome);
                 return NoContent();
             }
             catch (Exception ex)

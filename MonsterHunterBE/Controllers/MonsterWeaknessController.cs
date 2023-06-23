@@ -8,11 +8,11 @@ namespace MonsterHunterBE.Controllers
     [Route("api/[controller]")]
     public class MonsterWeaknessController : Controller
     {
-        private readonly MonsterWeaknessService weakness;
+        private readonly MonsterWeaknessService weaknessSerive;
 
         public MonsterWeaknessController(MonsterWeaknessService monsterWeaknessService)
         {
-            this.weakness = monsterWeaknessService;
+            this.weaknessSerive = monsterWeaknessService;
         }
 
         [HttpGet]
@@ -20,7 +20,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var weak = weakness.GetAll();
+                var weak = weaknessSerive.GetAll();
                 return Ok(weak);
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var weak = weakness.GetById(id);
+                var weak = weaknessSerive.GetById(id);
                 if (weak == null)
                 {
                     return NotFound();
@@ -52,7 +52,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                weakness.AddWeakness(weak);
+                weaknessSerive.AddWeakness(weak);
                 return CreatedAtAction(nameof(GetSingleWeak), new { id = weak.Id }, weak);
             }
             catch (Exception ex)
@@ -66,7 +66,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                weakness.UpdateWeakness(id, weak);
+                weaknessSerive.UpdateWeakness(id, weak);
                 return Ok();
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                weakness.DeleteWeakness(id);
+                weaknessSerive.DeleteWeakness(id);
                 return NoContent();
             }
             catch (Exception ex)
