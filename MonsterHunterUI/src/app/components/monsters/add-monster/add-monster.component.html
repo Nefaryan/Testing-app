@@ -1,0 +1,40 @@
+<br>
+<br>
+<div class="container my-5">
+    <div class="row align-items-start">
+        <div class="col-lg-6">
+            <div class="form-box">
+                <h1 class="mb-3" style="color: aliceblue; font-family: 'Times New Roman', Times, serif;">Add new Monster</h1>
+                <form #form="ngForm" (ngSubmit)="addMonster()" class="custom-form">
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" class="form-control custom-input" id="type" name="type"
+                            [(ngModel)]="addMonsterRequest.type">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control custom-input" id="name" name="name"
+                            [(ngModel)]="addMonsterRequest.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control custom-input" id="description" name="description"
+                            [(ngModel)]="addMonsterRequest.description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="imageUrls" class="form-label">imageUrls</label>
+                        <input type="text" class="form-control custom-input" id="imageUrls" name="imageUrls"
+                            [(ngModel)]="addMonsterRequest.imageUrls">
+                    </div>
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Note</label>
+                        <input type="text" class="form-control custom-input" id="note" name="note"
+                            [(ngModel)]="addMonsterRequest.note">
+                    </div>
+                    <button type="submit" class="btn btn-primary custom-button">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,36 @@
+.custom-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid lightblue;
+  border-radius: 0;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: lightblue;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button {
+  background-color: lightblue;
+  border: none;
+}
+.custom-button-delete{
+  background-color: rgb(156, 97, 235);
+  border: none;
+}
+.custom-button-delete:hover{
+  background-color: aquamarine;
+}
+
+.custom-button:hover {
+  background-color: deepskyblue;
+}
+

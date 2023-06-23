@@ -1,0 +1,46 @@
+<br>
+<br>
+<div class="container my-5">
+  <h1 style="color: aliceblue; font-family: 'Times New Roman', Times, serif;">Monster List</h1>
+  <table class="table" style="color:deepskyblue; font-family: 'Times New Roman', Times, serif;">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image URLs</th>
+        <th>Weakness</th>
+        <th>Drop</th>
+        <th>Note</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let monster of monsters" 
+      style="color: whitesmoke; font-family: 'Times New Roman', Times, serif;">
+        <td>{{monster.id}}</td>
+        <td>{{ monster.type }}</td>
+        <td>{{ monster.name }}</td>
+        <td>{{ monster.description }}</td>
+        <td>{{ monster.imageUrls }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let weakness of monster.weakness">
+              {{ weakness.name }} ({{ weakness.type }}) - {{ weakness.weaknessPerc }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let drop of monster.drop">
+              {{ drop.name }} - {{ drop.description }} (Drop Rate: {{ drop.dropRate }})
+            </li>
+          </ul>
+        </td>
+        <td>{{ monster.note }}</td>
+        <td><a [routerLink]="['/monster','edit',monster.id]">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

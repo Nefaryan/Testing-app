@@ -1,0 +1,47 @@
+<br>
+<br>
+<div class="container my-5">
+    <div class="row align-items-start">
+        <div class="col-lg-6">
+            <div class="form-box">
+                <h1 class="mb-3" 
+                style="color: aliceblue; font-family: 'Times New Roman', Times, serif;">Edit Monster</h1>
+                <form #form="ngForm" (ngSubmit)="updateMonster()" class="custom-form">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Id</label>
+                        <input type="text" class="form-control custom-input" id="id" readonly
+                            name="id" [(ngModel)]="monsterDetail.id">
+                    </div>
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" class="form-control custom-input" id="type" readonly
+                            name="type" [(ngModel)]="monsterDetail.type">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control custom-input" id="name" readonly
+                            name="name" [(ngModel)]="monsterDetail.name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control custom-input" id="description"
+                            name="description" [(ngModel)]="monsterDetail.description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="imageUrls" class="form-label">imageUrls</label>
+                        <input type="text" class="form-control custom-input" id="imageUrls"
+                            name="imageUrls" [(ngModel)]="monsterDetail.imageUrls">
+                    </div>
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Note</label>
+                        <input type="text" class="form-control custom-input" id="note"
+                            name="note" [(ngModel)]="monsterDetail.note">
+                    </div>
+                    <button type="submit" class="btn btn-primary custom-button">Save</button>
+                    <button type="button" class="btn btn-danger custom-button-delete" 
+                        (click)="deleteMonstes()">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

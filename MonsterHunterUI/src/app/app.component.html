@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg custom-navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="https://www.mandatory.gg/wp-content/uploads/mandatory-mhrise-sunbreak-guides-monstres-velkhana-icon.png"
+       alt="logo" width="70" height="70">
+    </a>
+    <button class="navbar-toggler custom-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Monster 
+          </a>
+          <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item custom-dropdown-item" routerLink="monster/add">Create</a></li>
+            <li><a class="dropdown-item custom-dropdown-item" routerLink="monster">Show Monster</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Monster Drop
+          </a>
+          <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item custom-dropdown-item" routerLink="drop/add">Create</a></li>
+            <li><a class="dropdown-item custom-dropdown-item" routerLink="monsterDrop">Show Drop</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Monster Weakness
+          </a>
+          <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item custom-dropdown-item" routerLink="weak/add">Create</a></li>
+            <li><a class="dropdown-item custom-dropdown-item" routerLink="mosnterWeakness">Show Weakness</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

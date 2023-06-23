@@ -1,0 +1,25 @@
+<br>
+<br>
+<div class="container my-5">
+ <h1 style="color: aliceblue; font-family: 'Times New Roman', Times, serif;">Drop List</h1>
+<table class="table" style="color: deepskyblue; font-family: 'Times New Roman', Times, serif;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Drop Rate</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let drop of drops" style="color: whitesmoke; font-family: 'Times New Roman', Times, serif;">
+        <td>{{ drop.id }}</td>
+        <td>{{ drop.name }}</td>
+        <td>{{ drop.description }}</td>
+        <td>{{ drop.dropRate }}</td>
+        <td><a [routerLink]="['/drop','edit',drop.name]">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

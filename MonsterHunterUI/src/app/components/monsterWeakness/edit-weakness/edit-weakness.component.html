@@ -1,0 +1,38 @@
+<br>
+<br>
+<div class="container my-5">
+    <h1 class="mb-3" style="color: aliceblue; font-family: 'Times New Roman', Times, serif;">Edit Weakness</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateMonsterWeakness()" class="custom-form">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control custom-input" id="id" readonly
+                    name="id" [(ngModel)]="weaknessDetail.id">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control custom-input" id="name" readonly
+                    name="name" [(ngModel)]="weaknessDetail.name">
+                </div>
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <input type="text" class="form-control custom-input" id="type"
+                    name="type" [(ngModel)]="weaknessDetail.type">
+                </div>
+                <div class="mb-3">
+                    <label for="weaknessPerc" class="form-label">Weakness %</label>
+                    <input type="number" class="form-control custom-input" id="weaknessPerc"
+                    name="weaknessPerc" [(ngModel)]="weaknessDetail.weaknessPerc">
+                </div>
+                <button type="submit" class="btn btn-primary custom-button">Submit</button>
+                <button type="button" class="btn btn-danger custom-button-delete" 
+                (click)="daleteMonsterWeak()">Delete</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

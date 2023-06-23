@@ -1,0 +1,39 @@
+.custom-navbar {
+    background-color: transparent;  
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: white;
+    text-shadow: 0 2px 4px deepskyblue;
+}
+
+.custom-dropdown {
+    color: white;
+    background-color: transparent;
+    box-shadow: 0 2px 4px white;
+    text-shadow: 0 2px 2px deepskyblue;
+}
+
+.custom-dropdown-item {
+    color: white;
+}
+
+.custom-dropdown-item:hover {
+    text-shadow: 0 0 15px rgb(44, 90, 240);
+}
+
+.custom-navbar-toggler {
+    background-color: transparent;
+    border-color: white;
+  }
+  
+  .custom-navbar-toggler .navbar-toggler-icon {
+    background-image: 
+    url('https://www.mandatory.gg/wp-content/uploads/mandatory-mhrise-sunbreak-guides-monstres-velkhana-icon.png'); 
+    
+  }
+  
+  .custom-navbar-toggler:hover {
+    background-color: white;
+    color: aquamarine;
+  }

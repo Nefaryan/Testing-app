@@ -1,0 +1,38 @@
+<br>
+<br>
+<div class="container my-5">
+    <h1 class="mb-3">Edit Drop</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="updateDrop()" class="custom-form">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control custom-input" id="id" readonly
+                    name="id" [(ngModel)]="dropDetail.id">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control custom-input" id="name" readonly
+                    name="name" [(ngModel)]="dropDetail.name">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control custom-input " id="description"
+                    name="description" [(ngModel)]="dropDetail.description">
+                </div>
+                <div class="mb-3">
+                    <label for="dropRate" class="form-label">Drop Rate</label>
+                    <input type="number" class="form-control custom-input" id="dropRate"
+                    name="dropRate" [(ngModel)]="dropDetail.dropRate">
+                </div>
+                <button type="submit" class="btn btn-primary custom-button">Submit</button>
+                <button type="button" class="btn btn-danger custom-button-delete" 
+                (click)="deleteDrop()">Delete</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
