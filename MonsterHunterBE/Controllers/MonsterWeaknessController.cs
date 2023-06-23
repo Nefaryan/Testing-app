@@ -48,7 +48,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpPost]
-        public IActionResult addWeak([FromBody] MonsterWeakness weak)
+        public IActionResult AddWeak([FromBody] MonsterWeakness weak)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult upddateWeakness(Guid id, [FromBody] MonsterWeakness weak)
+        public IActionResult UpddateWeakness(Guid id, [FromBody] MonsterWeakness weak)
         {
             try
             {
