@@ -49,7 +49,7 @@ namespace MonsterHunterBE.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -78,7 +78,7 @@ namespace MonsterHunterBE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An error accured");
+                return StatusCode(500, ex.Message);
             }
         }
 
@@ -92,7 +92,7 @@ namespace MonsterHunterBE.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An error accured");
+                return StatusCode(500, ex.Message);
             }
         }
 
