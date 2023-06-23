@@ -19,11 +19,11 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Monster>> getAllMonster()
+        public ActionResult<List<Monster>> GetAllMonster()
         {
             try
             {
-                var monster = monsterService.getAll();
+                var monster = monsterService.GetAll();
                 return Ok(monster);
             }
             catch (Exception ex)
@@ -35,11 +35,11 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Monster> getMonster(Guid id)
+        public ActionResult<Monster> GetMonster(Guid id)
         {
             try
             {
-                var monster = monsterService.getById(id);
+                var monster = monsterService.GetById(id);
                 if (monster == null)
                 {
                     return NotFound();
@@ -59,8 +59,8 @@ namespace MonsterHunterBE.Controllers
 
             try
             {
-                monsterService.addMonster(monster);
-                return CreatedAtAction(nameof(getMonster), new { id = monster.Id }, monster);
+                monsterService.AddMonster(monster);
+                return CreatedAtAction(nameof(GetMonster), new { id = monster.Id }, monster);
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                monsterService.updateMonster(id, monster);
+                monsterService.UpdateMonster(id, monster);
                 return Ok();
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                monsterService.removeMonster(id);
+                monsterService.RemoveMonster(id);
                 return NoContent();
             }
             catch (Exception ex)
@@ -97,11 +97,11 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpPut("/addDrop/{id}/{name}")]
-        public IActionResult addDrop(Guid id, string name)
+        public IActionResult AddDrop(Guid id, string name)
         {
             try
             {
-                monsterService.addDrop(id, name);
+                monsterService.AddDrop(id, name);
                 return Ok();
             }
             catch (Exception e)
@@ -111,11 +111,11 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpPut("/addWeak/{MonsterId}/{WeaknessId}")]
-        public IActionResult addWeak(Guid MonsterId, Guid WeaknessId)
+        public IActionResult AddWeak(Guid MonsterId, Guid WeaknessId)
         {
             try
             {
-                monsterService.addWeakness(MonsterId, WeaknessId);
+                monsterService.AddWeakness(MonsterId, WeaknessId);
                 return Ok();
 
             }
@@ -128,7 +128,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet("/type/{type}")]
-        public ActionResult<List<Monster>> getByType(string type)
+        public ActionResult<List<Monster>> GetByType(string type)
         {
             try
             {
@@ -138,8 +138,8 @@ namespace MonsterHunterBE.Controllers
             }
             catch (Exception e)
             {
-                return NotFound();
-                ;
+                return NotFound(e.Message);
+                
             }
         }
 
@@ -148,7 +148,7 @@ namespace MonsterHunterBE.Controllers
         {
             try
             {
-                var monster = monsterService.getById(id);
+                var monster = monsterService.GetById(id);
                 if (monster == null)
                 {
                     return NotFound();
@@ -158,6 +158,19 @@ namespace MonsterHunterBE.Controllers
             catch (Exception e)
             {
                 return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("/drop/{nome}")]
+        public ActionResult<MonsterDrop> GetDropByMonsterName(string nome)
+        {
+            try
+            {
+                var drops = monsterService.FindAllDropOfMonster(nome);
+                return Ok(drops);
+            }catch (Exception e)
+            {
+                return NotFound(e.Message);
             }
         }
 

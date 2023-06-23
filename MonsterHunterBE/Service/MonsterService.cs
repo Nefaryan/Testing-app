@@ -7,58 +7,64 @@ namespace MonsterHunterBE.Service
     public class MonsterService
     {
         private readonly MonsterRepository repository;
-        private readonly MonsterDropRepository dropRepository;
-        private readonly MonsterWeaknessRepository weaknessRepository;
-        private readonly MonsterDropService dropService;
-
-        public MonsterService(MonsterRepository repository, MonsterDropRepository dropRepository, MonsterWeaknessRepository weaknessRepository)
+      
+        public MonsterService(MonsterRepository repository)
         {
             this.repository = repository;
-            this.dropRepository = dropRepository;
-            this.weaknessRepository = weaknessRepository;
+         
         }
 
-        public List<Monster> getAll()
+        public List<Monster> GetAll()
         {
             return repository.GetAll();
         }
 
-        public Monster getById(Guid id)
+        public Monster GetById(Guid id)
         {
             return repository.GetMonsterById(id);
         }
 
-        public Monster addMonster(Monster monster)
+        public Monster AddMonster(Monster monster)
         {
 
             return repository.AddNewMonster(monster);
         }
 
-        public Monster updateMonster(Guid id, Monster monster)
+        public Monster UpdateMonster(Guid id, Monster monster)
         {
-            return repository.updateMonster(id, monster);
+            return repository.UpdateMonster(id, monster);
         }
 
-        public void removeMonster(Guid id)
+        public void RemoveMonster(Guid id)
         {
-            repository.deleteMonster(id);
+            repository.DeleteMonster(id);
         }
 
-        public void addDrop(Guid Id, String name)
+        public void AddDrop(Guid Id, String name)
         {
             repository.AddDropToMonster(Id, name);
         }
 
-        public void addWeakness(Guid MonsterId, Guid WeaknessId)
+        public void AddWeakness(Guid MonsterId, Guid WeaknessId)
         {
             repository.AddWeaknessToMonster(MonsterId, WeaknessId);
         }
 
         public IEnumerable<Monster> FindAllMonsterOfType(string type)
         {
-
-            List<Monster> monsters = getAll();
+            List<Monster> monsters = GetAll();
             return monsters.Where(monster => monster.Type.Equals(type));
+        }
+
+        public IEnumerable<MonsterDrop> FindAllDropOfMonster(string name) {
+        
+            Monster monster = repository.FindByName(name);
+            if(monster == null)
+            {
+                return Enumerable.Empty<MonsterDrop>();
+            }
+            List<MonsterDrop> monstersDop = monster.Drop.ToList();
+            return monstersDop;
         }
     }
 

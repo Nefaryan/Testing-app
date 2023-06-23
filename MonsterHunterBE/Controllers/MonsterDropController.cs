@@ -16,7 +16,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<MonsterDrop>> getAllDrop()
+        public ActionResult<List<MonsterDrop>> GetAllDrop()
         {
             try
             {
@@ -30,7 +30,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet("{nome}")]
-        public ActionResult<MonsterDrop> getSingle(string nome)
+        public ActionResult<MonsterDrop> GetSingle(string nome)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace MonsterHunterBE.Controllers
             try
             {
                 service.AddMonsterDrop(drop);
-                return CreatedAtAction(nameof(getSingle), new { nome = drop.Name }, drop);
+                return CreatedAtAction(nameof(GetSingle), new { nome = drop.Name }, drop);
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpPut("{nome}")]
-        public IActionResult updateDrop(string nome, MonsterDrop drop)
+        public IActionResult UdateDrop(string nome, MonsterDrop drop)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpDelete("{nome}")]
-        public IActionResult deleteDrop(string nome)
+        public IActionResult DeleteDrop(string nome)
         {
             try
             {
@@ -89,5 +89,7 @@ namespace MonsterHunterBE.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+       
     }
 }

@@ -1,4 +1,8 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\MonsterHunterBE"
+  ],
+  "SelectedNode": "\\MonsterHunterBE\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

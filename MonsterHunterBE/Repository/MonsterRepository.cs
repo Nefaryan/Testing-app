@@ -45,7 +45,7 @@ namespace MonsterHunterBE.Repository
         
     
 
-        public Monster updateMonster(Guid id, Monster monster)
+        public Monster UpdateMonster(Guid id, Monster monster)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace MonsterHunterBE.Repository
             return monster;
         }
 
-        public void deleteMonster(Guid id)
+        public void DeleteMonster(Guid id)
         {
             var monster = hunterContex.Monsters.FirstOrDefault(m => m.Id == id);
             if (monster != null)
@@ -89,7 +89,7 @@ namespace MonsterHunterBE.Repository
                     monster.Drop = new List<MonsterDrop>();
 
                 monster.Drop.Add(drop);
-                updateMonster(monsterId, monster);
+                UpdateMonster(monsterId, monster);
             }
         }
 
@@ -104,8 +104,14 @@ namespace MonsterHunterBE.Repository
                     monster.Weakness = new List<MonsterWeakness>();
 
                 monster.Weakness.Add(weakness);
-                updateMonster(monsterId, monster);
+                UpdateMonster(monsterId, monster);
             }
+        }
+
+        public Monster FindByName(string name)
+        {
+            Monster monster = hunterContex.Monsters.FirstOrDefault(x => x.Name == name);
+            return monster;
         }
     }
 }
