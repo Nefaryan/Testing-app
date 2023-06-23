@@ -22,11 +22,7 @@ namespace MonsterHunterBE.Repository
 
         public MonsterWeakness GetById(Guid id)
         {
-            var weak = Monstercontext.MonsterWeaknesses.FirstOrDefault(w => w.Id == id);
-            if (weak == null)
-            {
-                throw new Exception("Not found");
-            }
+            var weak = Monstercontext.MonsterWeaknesses.FirstOrDefault(w => w.Id == id) ?? throw new Exception("Not found");
             return weak;
         }
 
@@ -38,14 +34,9 @@ namespace MonsterHunterBE.Repository
         {
             try
             {
-                var upWeak = Monstercontext.MonsterWeaknesses.FirstOrDefault(w => w.Id == id);
-                if (upWeak == null)
-                {
-                    throw new Exception($"Unable to update drop: {id}");
-                }
+                var upWeak = Monstercontext.MonsterWeaknesses.FirstOrDefault(w => w.Id == id) ?? throw new Exception($"Unable to update drop: {id}");
                 upWeak.WeaknessPerc = weakness.WeaknessPerc;
                 upWeak.Name = weakness.Name;
-
 
                 Monstercontext.SaveChanges();
             }

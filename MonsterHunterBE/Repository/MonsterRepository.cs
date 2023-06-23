@@ -28,32 +28,24 @@ namespace MonsterHunterBE.Repository
 
         public Monster GetMonsterById(Guid id)
         {
-            var monster = hunterContex.Monsters.FirstOrDefault(m => m.Id == id);
-            if (monster == null)
-            {
-                throw new Exception("Nessun mostro trovato");
-            }
+            var monster = hunterContex.Monsters.FirstOrDefault(m => m.Id == id) ?? throw new Exception("Nessun mostro trovato");
             return monster;
         }
 
         public List<Monster> GetAll()
         {
             return hunterContex.Monsters
-                .Include(x=> x.Drop)
+                .Include(x => x.Drop)
                 .Include(y => y.Weakness).ToList();
         }
-        
-    
+
+
 
         public Monster UpdateMonster(Guid id, Monster monster)
         {
             try
             {
-                var eXMonster = hunterContex.Monsters.FirstOrDefault(m => m.Id == id);
-                if (eXMonster == null)
-                {
-                    throw new Exception("Monster not found");
-                }
+                var eXMonster = hunterContex.Monsters.FirstOrDefault(m => m.Id == id) ?? throw new Exception("Monster not found");
                 eXMonster.Description = monster.Description;
                 eXMonster.Note = monster.Note;
                 eXMonster.ImageUrls = monster.ImageUrls;
@@ -85,8 +77,7 @@ namespace MonsterHunterBE.Repository
 
             if (monster != null && drop != null)
             {
-                if (monster.Drop == null)
-                    monster.Drop = new List<MonsterDrop>();
+                monster.Drop ??= new List<MonsterDrop>();
 
                 monster.Drop.Add(drop);
                 UpdateMonster(monsterId, monster);
@@ -100,8 +91,7 @@ namespace MonsterHunterBE.Repository
 
             if (monster != null && weakness != null)
             {
-                if (monster.Weakness == null)
-                    monster.Weakness = new List<MonsterWeakness>();
+                monster.Weakness ??= new List<MonsterWeakness>();
 
                 monster.Weakness.Add(weakness);
                 UpdateMonster(monsterId, monster);

@@ -30,7 +30,7 @@ namespace MonsterHunterBE.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<MonsterWeakness> GetSingleWeak([FromRoute]Guid id)
+        public ActionResult<MonsterWeakness> GetSingleWeak([FromRoute] Guid id)
         {
             try
             {

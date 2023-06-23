@@ -139,7 +139,7 @@ namespace MonsterHunterBE.Controllers
             catch (Exception e)
             {
                 return NotFound(e.Message);
-                
+
             }
         }
 
@@ -168,7 +168,8 @@ namespace MonsterHunterBE.Controllers
             {
                 var drops = monsterService.FindAllDropOfMonster(nome);
                 return Ok(drops);
-            }catch (Exception e)
+            }
+            catch (Exception e)
             {
                 return NotFound(e.Message);
             }

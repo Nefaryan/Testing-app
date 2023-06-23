@@ -22,11 +22,7 @@ namespace MonsterHunterBE.Repository
 
         public MonsterDrop GetDropByName(string name)
         {
-            var drop = context.MonsterDrops.FirstOrDefault(d => d.Name == name);
-            if (drop == null)
-            {
-                throw new Exception("Drop is null");
-            }
+            var drop = context.MonsterDrops.FirstOrDefault(d => d.Name == name) ?? throw new Exception("Drop is null");
             return drop;
 
         }
@@ -39,11 +35,7 @@ namespace MonsterHunterBE.Repository
         {
             try
             {
-                var upDrop = context.MonsterDrops.FirstOrDefault(d => d.Name == name);
-                if (upDrop == null)
-                {
-                    throw new Exception($"Unable to update drop: {name}");
-                }
+                var upDrop = context.MonsterDrops.FirstOrDefault(d => d.Name == name) ?? throw new Exception($"Unable to update drop: {name}");
                 upDrop.DropRate = monsterDrop.DropRate;
                 upDrop.Description = monsterDrop.Description;
 

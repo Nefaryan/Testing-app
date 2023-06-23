@@ -7,11 +7,11 @@ namespace MonsterHunterBE.Service
     public class MonsterService
     {
         private readonly MonsterRepository repository;
-      
+
         public MonsterService(MonsterRepository repository)
         {
             this.repository = repository;
-         
+
         }
 
         public List<Monster> GetAll()
@@ -56,10 +56,11 @@ namespace MonsterHunterBE.Service
             return monsters.Where(monster => monster.Type.Equals(type));
         }
 
-        public IEnumerable<MonsterDrop> FindAllDropOfMonster(string name) {
-        
+        public IEnumerable<MonsterDrop> FindAllDropOfMonster(string name)
+        {
+
             Monster monster = repository.FindByName(name);
-            if(monster == null)
+            if (monster == null)
             {
                 return Enumerable.Empty<MonsterDrop>();
             }
