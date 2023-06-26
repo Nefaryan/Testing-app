@@ -36,7 +36,6 @@ namespace MonsterHunterBE.Repository
         /// <returns>il mostro</returns>
         /// <exception cref="Exception">
         /// messaggio di errore che viene visuallizato se l'id inserito non viene trovato nel db</exception>
-
         public Monster GetMonsterById(Guid id)
         {
             var monster = hunterContex.Monsters.FirstOrDefault(m => m.Id == id) ?? throw new Exception("Nessun mostro trovato");
